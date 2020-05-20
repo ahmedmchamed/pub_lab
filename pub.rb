@@ -2,7 +2,7 @@ class Pub
 
     attr_reader :name, :till
 
-    def initialize(name, till, drinks = [])
+    def initialize(name, till, drinks = {})
         @name = name
         @till = till
         @drinks = drinks
@@ -11,15 +11,16 @@ class Pub
     end
 
     def number_of_drinks()
-        return @drinks.size()
+        number_of_drinks = 0
+        for number in @drinks.values()
+            number_of_drinks += number
+        end
+        return number_of_drinks
     end
 
-    def return_list_of_drinks()
-        return @drinks
-    end
 
     def remove_drink(drink)
-        @drinks.delete(drink)
+        @drinks[drink] -= 1
     end
 
     def add_to_till(amount)
@@ -36,8 +37,8 @@ class Pub
     end
 
     def sell_drink_to_customer(drink, customer)
-        drinks_menu = return_list_of_drinks()
-
+        drinks_menu = @drinks.keys()
+        
         return if is_customer_old_enough(customer) || is_customer_drunk(customer) == true
 
         for beverage in drinks_menu
