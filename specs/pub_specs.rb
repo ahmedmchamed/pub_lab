@@ -3,6 +3,7 @@ require('minitest/reporters')
 require_relative('../pub')
 require_relative('../drink')
 require_relative('../customer')
+require_relative('../food')
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
@@ -14,9 +15,12 @@ class TestPub < MiniTest::Test
         @drink3 = Drink.new("Hacksaw", 40, 3)
         @drinks = [@drink1, @drink2, @drink3]
 
-        @customer = Customer.new("Frodo", 60, 32)
+        @customer = Customer.new("Frodo", 60, 32, 6)
 
         @pub = Pub.new("Chanter", 200, @drinks)
+
+        @food = Food.new("Meatballs", 5, 2)
+
     end
 
     def test_can_get_pub_name()
@@ -56,6 +60,7 @@ class TestPub < MiniTest::Test
         assert_equal(2, @pub.number_of_drinks())
         assert_equal(30, @customer.get_wallet_amount())
         assert_equal(230, @pub.till())
+        assert_equal(7, @customer.drunkenness())
     end
 
 end
