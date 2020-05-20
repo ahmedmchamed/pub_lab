@@ -13,11 +13,11 @@ class TestDrink < MiniTest::Test
     end
 
     def test_name()
-        assert_equal("Screwdriver", @drink.name)
+        assert_equal("Screwdriver", @drink.name())
     end
 
     def test_price()
-        assert_equal(10, @drink.price)
+        assert_equal(10, @drink.price())
     end
 
 end
