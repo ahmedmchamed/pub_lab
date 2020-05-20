@@ -1,12 +1,13 @@
 class Customer
 
-    attr_reader :name, :age
+    attr_reader :name, :age, :drunkenness
 
-    def initialize(name, wallet, age)
+    def initialize(name, wallet, age, drunkenness = 0)
        
         @name = name
         @wallet = wallet
         @age = age
+        @drunkenness = drunkenness
 
     end
 
@@ -18,14 +19,9 @@ class Customer
         @wallet -= amount
     end
 
-    # def can_buy_drink(pub, name_of_drink)
-    #     for beverage in pub.return_list_of_drinks()
-    #         if get_wallet_amount() > beverage.price()
-    #             return true
-    #         end
-    #     end
-    #     return false
-    # end
+    def increase_drunken_level(alcohol_amount)
+        @drunkenness += alcohol_amount
+    end
 
     def can_buy_drink(price)
         if get_wallet_amount() > price 

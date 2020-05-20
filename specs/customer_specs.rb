@@ -10,9 +10,9 @@ class TestCustomer < MiniTest::Test
 
     def setup
 
-        @drink1 = Drink.new("Hammer", 30)
-        @drink2 = Drink.new("TheDrill", 35)
-        @drink3 = Drink.new("Hacksaw", 40)
+        @drink1 = Drink.new("Hammer", 30, 1)
+        @drink2 = Drink.new("TheDrill", 35, 2)
+        @drink3 = Drink.new("Hacksaw", 40, 4)
         @drinks = [@drink1, @drink2, @drink3]
 
         @customer = Customer.new("Zack", 60, 39)
@@ -35,6 +35,10 @@ class TestCustomer < MiniTest::Test
 
     def test_customer_can_buy_drink__not_enough_money()
         assert_equal(false, @customer.can_buy_drink(70))
+    end
+
+    def test_is_customer_drunk()
+        assert_equal()
     end
 
 end

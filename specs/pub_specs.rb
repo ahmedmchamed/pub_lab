@@ -9,9 +9,9 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 class TestPub < MiniTest::Test
 
     def setup()
-        @drink1 = Drink.new("Hammer", 30)
-        @drink2 = Drink.new("TheDrill", 35)
-        @drink3 = Drink.new("Hacksaw", 40)
+        @drink1 = Drink.new("Hammer", 30, 1)
+        @drink2 = Drink.new("TheDrill", 35, 2)
+        @drink3 = Drink.new("Hacksaw", 40, 3)
         @drinks = [@drink1, @drink2, @drink3]
 
         @customer = Customer.new("Frodo", 60, 32)
