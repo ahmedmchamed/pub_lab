@@ -8,4 +8,8 @@ class Pub
         @drinks = drinks
     end
 
+    def number_of_drinks()
+        return @drinks.size()
+    end
+
 end
