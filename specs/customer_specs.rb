@@ -37,8 +37,4 @@ class TestCustomer < MiniTest::Test
         assert_equal(false, @customer.can_buy_drink(70))
     end
 
-    def test_is_customer_drunk()
-        assert_equal()
-    end
-
 end

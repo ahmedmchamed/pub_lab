@@ -40,6 +40,16 @@ class TestPub < MiniTest::Test
         @pub.add_to_till(100)
         assert_equal(300, @pub.till())
     end
+
+    def test_is_customer_drunk__not_drunk()
+        customer = Customer.new("Legolas", 100, 528, 0)
+        assert_equal(false, @pub.is_customer_drunk(customer))
+    end
+
+    def test_is_customer_drunk__drunk()
+        customer = Customer.new("Gimli", 1000, 103, 43)
+        assert_equal(true, @pub.is_customer_drunk(customer))
+    end
     
     def test_pub_can_sell_drink_to_customer()
         @pub.sell_drink_to_customer("Hammer", @customer)
